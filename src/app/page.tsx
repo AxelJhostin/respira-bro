@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import QuoteGenerator from "@/components/QuoteGenerator";
-import { BookOpen, PlayCircle } from "lucide-react";
+import { BookOpen, PlayCircle, Anchor } from "lucide-react"; // Agrega Anchor
 
 export default function Home() {
   return (
@@ -48,7 +48,7 @@ export default function Home() {
             O explora a tu ritmo
           </p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Tarjeta BLOG */}
             <Link href="/blog" className="group">
               <div className="p-6 rounded-2xl border border-gray-200 dark:border-zinc-800 bg-gray-50 dark:bg-zinc-900 hover:border-blue-500 dark:hover:border-blue-500 transition-all cursor-pointer text-left">
@@ -70,6 +70,18 @@ export default function Home() {
                 </p>
               </div>
             </Link>
+
+            {/* Tarjeta GROUNDING */}
+            <Link href="/herramientas/grounding" className="group">
+              <div className="p-6 h-full rounded-2xl border border-gray-200 dark:border-zinc-800 bg-gray-50 dark:bg-zinc-900 hover:border-teal-500 dark:hover:border-teal-500 transition-all cursor-pointer text-left">
+                <Anchor className="w-8 h-8 text-teal-500 mb-3 group-hover:scale-110 transition-transform" />
+                <h3 className="font-bold text-lg text-gray-900 dark:text-white">Grounding 5-4-3-2-1</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  Técnica rápida para detener ataques de pánico.
+                </p>
+              </div>
+            </Link>
+
           </div>
         </div>
 
