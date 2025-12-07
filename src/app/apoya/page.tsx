@@ -57,7 +57,7 @@ export default function SupportPage() {
                 className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 <Coffee className="w-5 h-5" />
-                Invítame un café ($3)
+                Invítame un café ($1)
               </a>
             </div>
           </div>
