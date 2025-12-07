@@ -4,7 +4,7 @@ import { ArrowLeft, Coffee, CreditCard, Heart } from "lucide-react"
 
 export default function SupportPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-white dark:bg-zinc-950 transition-colors">
+    <main className="min-h-screen flex flex-col items-center justify-center pt-28 px-6 pb-6 bg-white dark:bg-zinc-950 transition-colors">
       
       {/* Botón Volver */}
       <div className="absolute top-6 left-6 sm:top-24">

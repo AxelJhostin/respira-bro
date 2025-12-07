@@ -6,7 +6,7 @@ import { BookOpen, PlayCircle } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6 text-center bg-background text-foreground transition-colors duration-300">
+    <main className="flex min-h-screen flex-col items-center justify-center pt-28 px-6 pb-6 text-center bg-background text-foreground transition-colors duration-300">
       
       <div className="max-w-2xl space-y-8 mt-12 sm:mt-0"> {/* Agregué mt-12 para dar espacio al nav en móvil */}
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl text-balance">
@@ -33,6 +33,13 @@ export default function Home() {
           <button className="w-full sm:w-auto px-8 py-4 bg-gray-200 dark:bg-zinc-800 text-gray-900 dark:text-white font-semibold rounded-xl hover:bg-gray-300 dark:hover:bg-zinc-700 transition-colors">
             Solo estoy mirando
           </button>
+        </div>
+
+        <div className="mt-6">
+          <Link href="/test-burnout" className="text-sm font-medium text-gray-500 hover:text-orange-500 transition-colors flex items-center justify-center gap-2 underline decoration-dotted underline-offset-4">
+            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+            ¿Crees que tienes Burnout? Haz el test específico
+          </Link>
         </div>
 
         {/* --- NUEVA SECCIÓN: RECURSOS ADICIONALES (VISIBLE EN MÓVIL) --- */}
