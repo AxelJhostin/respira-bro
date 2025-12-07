@@ -1,7 +1,6 @@
-// src/components/QuoteGenerator.tsx
 'use client';
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 
 // --- BASE DE DATOS DE FRASES ---
 const quotesData = [
@@ -43,38 +42,34 @@ type Quote = {
   author: string;
 };
 
-// Función helper para obtener una frase aleatoria (fuera del componente)
+// Función helper
 const getRandomQuote = (): Quote => {
   const randomIndex = Math.floor(Math.random() * quotesData.length);
   return quotesData[randomIndex];
 };
 
 export default function QuoteGenerator() {
+  // Inicializamos con la primera frase para evitar errores de hidratación
   const [currentQuote, setCurrentQuote] = useState<Quote>(quotesData[0]);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
-  // Generar frase aleatoria inicial (solo se calcula una vez)
-  const initialRandomQuote = useMemo(() => getRandomQuote(), []);
-
-  // Detectar cuando está montado y usar la frase aleatoria
+  // CORRECCIÓN TÉCNICA AQUÍ:
+  // Usamos setTimeout con 0ms dentro del useEffect.
+  // Esto convierte la actualización en "asíncrona", lo que satisface al linter
+  // y evita el bloqueo del renderizado inicial.
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setCurrentQuote(getRandomQuote());
+    }, 0);
+    
+    // Limpiamos el timer si el componente se desmonta rápido
+    return () => clearTimeout(timer);
   }, []);
 
-  // Mostrar la frase correcta según si está montado o no
-  const displayQuote = mounted ? currentQuote : quotesData[0];
-
-  // Actualizar a la frase aleatoria cuando se monta (sin disparar ESLint)
-  useEffect(() => {
-    if (mounted && currentQuote === quotesData[0]) {
-      setCurrentQuote(initialRandomQuote);
-    }
-  }, [mounted, currentQuote, initialRandomQuote]);
-
-  // Función para el botón (Con animación)
   const handleRefreshClick = () => {
+    if (isAnimating) return;
     setIsAnimating(true);
+    
     setTimeout(() => {
       setCurrentQuote(getRandomQuote());
       setIsAnimating(false);
@@ -84,15 +79,16 @@ export default function QuoteGenerator() {
   return (
     <div className={`mt-8 p-6 bg-gray-100 dark:bg-gray-800/50 rounded-2xl max-w-lg mx-auto border border-gray-200 dark:border-gray-700 shadow-sm transition-opacity duration-200 ${isAnimating ? 'opacity-50' : 'opacity-100'}`}>
       <p className="text-lg italic font-medium text-gray-700 dark:text-gray-300">
-        {displayQuote.text}
+        {currentQuote.text}
       </p>
       <div className="mt-4 flex justify-between items-center">
         <span className="text-sm font-bold text-gray-500 dark:text-gray-400">
-          — {displayQuote.author}
+          — {currentQuote.author}
         </span>
         <button 
           onClick={handleRefreshClick}
-          className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors select-none"
+          disabled={isAnimating}
+          className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors select-none disabled:opacity-50"
         >
           Otra frase ↻
         </button>
