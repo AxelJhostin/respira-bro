@@ -37,37 +37,27 @@ export default function SupportPage() {
         {/* --- GRID DE DONACIONES --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 text-left">
           
-          {/* OPCIÓN 1: Internacional (PayPal / Buy Me a Coffee) */}
+          {/* OPCIÓN 1: Internacional (Buy Me a Coffee) */}
           <div className="bg-gray-50 dark:bg-zinc-900 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-sm flex flex-col">
             <div className="mb-auto">
               <h3 className="text-xl font-bold mb-2 flex items-center gap-2 text-gray-900 dark:text-white">
                 <Coffee className="w-6 h-6 text-yellow-500" /> Internacional
               </h3>
               <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
-                Usa PayPal o tarjeta. Es la forma más rápida y segura desde cualquier país.
+                Apóyame con tarjeta de crédito o débito de forma segura.
               </p>
             </div>
             
             <div className="space-y-4">
               {/* BOTÓN BUY ME A COFFEE */}
               <a 
-                href="https://www.buymeacoffee.com/TU_USUARIO_AQUI" 
+                href="https://buymeacoffee.com/axelhernand" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 <Coffee className="w-5 h-5" />
                 Invítame un café ($3)
-              </a>
-
-              {/* BOTÓN PAYPAL */}
-              <a 
-                href="https://paypal.me/TU_USUARIO_AQUI" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#0070BA] hover:bg-[#005ea6] text-white font-bold rounded-xl transition-transform hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Donar vía PayPal
               </a>
             </div>
           </div>
@@ -84,13 +74,13 @@ export default function SupportPage() {
             </div>
 
             <div className="flex flex-col items-center justify-center flex-grow bg-white dark:bg-black/40 p-6 rounded-2xl overflow-hidden">
-              {/* IMAGEN DEL QR - Asegúrate de que la imagen sea SOLO el QR recortado */}
+              {/* IMAGEN DEL QR */}
               <div className="relative w-48 h-48 shadow-sm rounded-lg overflow-hidden">
                  <Image 
                    src="/qr-pichincha.jpg" 
                    alt="QR Banco Pichincha"
                    fill
-                   className="object-cover" // Cambiado a cover para que llene el espacio si está bien recortado
+                   className="object-cover"
                  />
               </div>
               <div className="mt-4 text-center">
@@ -107,7 +97,7 @@ export default function SupportPage() {
         </div>
 
         <p className="text-xs text-gray-400 mt-8 max-w-md mx-auto">
-          *No guardamos ningún dato de tu tarjeta. Todos los pagos son procesados externamente por plataformas seguras.
+          *No guardamos ningún dato de tu tarjeta. Todos los pagos son procesados externamente.
         </p>
 
       </div>
