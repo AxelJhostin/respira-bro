@@ -1,6 +1,7 @@
 /* src/app/globals.css */
 @import "tailwindcss";
 @variant dark (&:where(.dark, .dark *));
+@plugin "@tailwindcss/typography";
 
 :root {
   /* Variables para Modo Claro */
