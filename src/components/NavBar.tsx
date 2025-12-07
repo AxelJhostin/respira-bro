@@ -1,3 +1,4 @@
+// src/components/NavBar.tsx
 import Link from "next/link"
 import { ThemeToggle } from "./ThemeToggle"
 import { Heart } from "lucide-react"

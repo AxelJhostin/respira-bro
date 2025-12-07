@@ -1,3 +1,4 @@
+// src/app/apoya/page.tsx
 import Link from "next/link"
 import { ArrowLeft, Coffee, Heart } from "lucide-react"
 
