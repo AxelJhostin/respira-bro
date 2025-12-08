@@ -10,8 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Respira, Bro | Herramientas de salud mental para hombres",
   description: "Una caja de herramientas simple para regular el estrés. Sin cuentas, sin costo, sin tonterías.",
+  metadataBase: new URL('https://respira-bro.vercel.app'),
   openGraph: {
-    title: "Respira, Bro | ¿Te sientes agotado?",
+    title: "Respira, Bro | Herramientas de salud mental para hombres",
     description: "Herramientas de regulación emocional para hombres. Entra, respira, sigue.",
     siteName: "Respira, Bro",
     locale: "es_EC",
