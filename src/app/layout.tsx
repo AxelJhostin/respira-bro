@@ -1,11 +1,10 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { NavBar } from "@/components/NavBar";
+import Script from 'next/script'; // <--- Importamos el componente de scripts
 
-// Configuramos la fuente Inter (se ve muy profesional y limpia)
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,6 +19,17 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +43,14 @@ export default function RootLayout({
           <NavBar />
           {children}
         </Providers>
+
+        {/* --- TU ANALÍTICA PRIVADA (UMAMI) --- */}
+        <Script 
+          src="https://umami-production-2d07.up.railway.app/script.js" 
+          data-website-id="6ffce6e7-14cc-42ae-9b8c-bbbd61e4c8bc"
+          strategy="afterInteractive" 
+        />
+        
       </body>
     </html>
   );
