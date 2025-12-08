@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://respira-bro.vercel.app'),
   openGraph: {
     title: "Respira, Bro | Herramientas de salud mental para hombres",
-    description: "Herramientas de regulación emocional para hombres. Entra, respira, sigue.",
+    description: "Una caja de herramientas simple para regular el estrés. Sin cuentas, sin costo, sin tonterías.",
     siteName: "Respira, Bro",
     locale: "es_EC",
     type: "website",

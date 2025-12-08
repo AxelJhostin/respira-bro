@@ -2,12 +2,12 @@ import { MetadataRoute } from 'next'
 import { getSortedPostsData } from '@/lib/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://respira-bro.vercel.app' // TU DOMINIO REAL AQUÍ
+  const baseUrl = 'https://respira-bro.vercel.app' 
 
-  // 1. Obtener todos los posts del blog
+  // 1. Obtenemos tus artículos del blog automáticamente
   const posts = getSortedPostsData()
   
-  // 2. Generar URLs para cada post
+  // 2. Generamos la URL para cada artículo
   const blogUrls = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.id}`,
     lastModified: new Date(post.date),
@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  // 3. Devolver las rutas estáticas + las del blog
+  // 3. Definimos las rutas principales de tu app
   return [
     {
       url: baseUrl,
@@ -30,7 +30,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/test-burnout`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/herramientas/respiracion`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/herramientas/grounding`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -41,6 +53,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    ...blogUrls,
+    {
+      url: `${baseUrl}/reflexiones`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...blogUrls, // Inyectamos todas las URLs del blog aquí
   ]
 }
